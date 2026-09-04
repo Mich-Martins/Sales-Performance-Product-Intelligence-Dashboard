@@ -5,8 +5,10 @@
 This portfolio project presents a Power BI analysis of BMW vehicle sales across models, countries, regions, channels, and time. The supplied sales file contains 5,000 populated records covering 1 January 2019 through 31 December 2023, plus 778 fully blank rows that require exclusion during data preparation.
 
 The report focuses on revenue and quantity sold, including prior-year comparisons, variances, and compact trend visualizations. The original Power BI report and source files are preserved in the project root.
+.
+![Dashboard screenshot](images/dashboard/dashboard-overview.png)
 
-> Dashboard screenshot: `images/dashboard/dashboard-overview.png`. Add an exported overview image as `images/dashboard/dashboard-overview.png`, then embed it here.
+![Dashboard screenshot](images/dashboard/dashboard-all-cars.png)
 
 ## Business Problem
 
