@@ -1,0 +1,236 @@
+1. Qty Sold = sum(FactTable[Quantity Sold])
+
+2. Qty Sold Growth = 
+    DIVIDE([Qty Sold Varience], [Qty Sold PY])
+
+3. Qty Sold PY = 
+    Calculate([Qty Sold],
+    DATEADD(
+        'Dim_Date'[Date],-1,YEAR
+        )
+    )
+
+4. Qty Sold Variance % = 
+	VAR VarPct = 
+    		DIVIDE([Qty Sold] - [Qty Sold PY], [Qty Sold PY])
+
+	RETURN 
+	IF(NOT ISBLANK(VarPct),
+    		FORMAT(VarPct, "0.0%") & " " &
+    	IF(VarPct > 0, "▲",
+        	IF(VarPct < 0, "▼", "▬")
+    		)
+	)
+
+5. Qty Sold Varience = [Qty Sold] - [Qty Sold PY]
+
+6. Qty-Sold_Spakline = 
+	VAR XMinDate =
+    	    MINX(ALLSELECTED(Dim_Date[MonthNum]),
+        	Dim_Date[MonthNum]
+    	    )
+
+	VAR XMaxDate =
+    	    MAXX(ALLSELECTED(Dim_Date[MonthNum]),
+        	Dim_Date[MonthNum]
+    	    )
+
+	VAR YMinValue =
+    	    MINX(ALLSELECTED(Dim_Date[MonthNum]),
+        	CALCULATE([Qty Sold])
+    	    )
+
+	VAR YMaxValue =
+    	    MAXX(ALLSELECTED(Dim_Date[MonthNum]),
+        	CALCULATE([Qty Sold])
+    	    )
+
+	VAR SparklineTable =
+    	    ADDCOLUMNS(ALLSELECTED(Dim_Date[MonthNum]),
+        	"Qty SoldValue",
+                   CALCULATE([Qty Sold]),
+                "X",
+            		INT(
+                	150 *
+                	DIVIDE(
+                    		Dim_Date[MonthNum] - XMinDate,
+                    		XMaxDate - XMinDate,
+                	    0
+                	)
+            	),
+        	"Y",
+            		INT(
+                	50 *
+                	(
+                    	1 -
+                    	DIVIDE(
+                        	CALCULATE([Qty Sold]) - YMinValue,
+                        	YMaxValue - YMinValue,
+                           0.5
+                    	)
+                )
+            	)
+    	)
+
+	VAR Lines =
+    		CONCATENATEX(
+        		SparklineTable,
+        		[X] & "," & [Y],
+        		" ",
+        		Dim_Date[MonthNum],
+        	ASC
+    	)
+
+	VAR FirstX =
+    		MINX(
+        		SparklineTable,
+        	[X]
+    	)
+
+	VAR LastX =
+    		MAXX(
+        		SparklineTable,
+        	[X]
+    	)
+
+	VAR SVGImageURL =
+    		"data:image/svg+xml;utf8," &
+    		"<svg xmlns='http://www.w3.org/2000/svg' " &
+    		"viewBox='0 0 150 50'>" &
+
+	    	"<path d='M " &
+    		FirstX & " 50 L " &
+    		Lines &
+    		" L " &
+    		LastX & " 50 Z' " &
+    		"fill='black' fill-opacity='0.20' />" &
+
+    		"<polyline " &
+    		"fill='none' " &
+    		"stroke='black' " &
+    		"stroke-width='2' " &
+    		"points='" &
+    		Lines &
+    		"' />" &
+
+	    	"</svg>"
+
+	RETURN
+    		SVGImageURL
+
+7. Revenue = sum(FactTable[Revenue])
+
+8. Revenue PY = CALCULATE([Revenue],SAMEPERIODLASTYEAR(Dim_Date[Date]))
+
+9. Revenue Variance % = 
+	VAR VarPct = 
+    		DIVIDE([Revenue] - [Revenue PY], [Revenue PY])
+
+	RETURN 
+		IF(
+    		NOT ISBLANK(VarPct),
+    		FORMAT(VarPct, "0.0%") & " " &
+    		IF(
+        	VarPct > 0, "▲",
+        	IF(VarPct < 0, "▼", "▬")
+    		)
+	)
+
+10. Revenue_Spakline = 
+VAR XMinDate =
+    MINX(
+        ALLSELECTED(Dim_Date[MonthNum]),
+        Dim_Date[MonthNum]
+    )
+
+VAR XMaxDate =
+    MAXX(
+        ALLSELECTED(Dim_Date[MonthNum]),
+        Dim_Date[MonthNum]
+    )
+
+VAR YMinValue =
+    MINX(
+        ALLSELECTED(Dim_Date[MonthNum]),
+        CALCULATE([Revenue])
+    )
+
+VAR YMaxValue =
+    MAXX(
+        ALLSELECTED(Dim_Date[MonthNum]),
+        CALCULATE([Revenue])
+    )
+
+VAR SparklineTable =
+    ADDCOLUMNS(
+        ALLSELECTED(Dim_Date[MonthNum]),
+        "RevenueValue",
+            CALCULATE([Revenue]),
+        "X",
+            INT(
+                150 *
+                DIVIDE(
+                    Dim_Date[MonthNum] - XMinDate,
+                    XMaxDate - XMinDate,
+                    0
+                )
+            ),
+        "Y",
+            INT(
+                50 *
+                (
+                    1 -
+                    DIVIDE(
+                        CALCULATE([Revenue]) - YMinValue,
+                        YMaxValue - YMinValue,
+                        0.5
+                    )
+                )
+            )
+    )
+
+VAR Lines =
+    CONCATENATEX(
+        SparklineTable,
+        [X] & "," & [Y],
+        " ",
+        Dim_Date[MonthNum],
+        ASC
+    )
+
+VAR FirstX =
+    MINX(
+        SparklineTable,
+        [X]
+    )
+
+VAR LastX =
+    MAXX(
+        SparklineTable,
+        [X]
+    )
+
+VAR SVGImageURL =
+    "data:image/svg+xml;utf8," &
+    "<svg xmlns='http://www.w3.org/2000/svg' " &
+    "viewBox='0 0 150 50'>" &
+
+    "<path d='M " &
+    FirstX & " 50 L " &
+    Lines &
+    " L " &
+    LastX & " 50 Z' " &
+    "fill='grey' fill-opacity='0.20' />" &
+
+    "<polyline " &
+    "fill='none' " &
+    "stroke='grey' " &
+    "stroke-width='2' " &
+    "points='" &
+    Lines &
+    "' />" &
+
+    "</svg>"
+
+RETURN
+    SVGImageURL
