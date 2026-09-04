@@ -6,13 +6,29 @@ This portfolio project presents a Power BI analysis of BMW vehicle sales across 
 
 The report focuses on revenue and quantity sold, including prior-year comparisons, variances, and compact trend visualizations. The original Power BI report and source files are preserved in the project root.
 
-> Dashboard screenshot: `[NEEDS INPUT]`. Add an exported overview image as `images/dashboard/dashboard-overview.png`, then embed it here.
+> Dashboard screenshot: `images/dashboard/dashboard-overview.png`. Add an exported overview image as `images/dashboard/dashboard-overview.png`, then embed it here.
 
 ## Business Problem
 
-Sales stakeholders need a consolidated view of BMW sales performance that supports comparison across time, vehicle models, geography, and sales channels. The exact stakeholder, organizational context, and decision process are `[NEEDS INPUT]`.
+The business has sales data generated across multiple vehicle models, countries, regions, sales channels, and time periods. However, without a centralized analytical view, it can be difficult for stakeholders to quickly understand overall sales performance, identify revenue trends, determine which models and markets are driving sales, and evaluate the contribution of different sales channels.
 
-See [Business Problem](docs/business_problem.md) and [Objectives](docs/objectives.md).
+The absence of an interactive reporting solution can make it challenging to identify performance patterns and translate raw sales data into actionable business insights.
+
+This project addresses this challenge by transforming the available transaction-level sales data into an interactive Power BI dashboard that provides a consolidated view of key sales performance indicators.
+
+## Project Objective
+
+The objective of this project is to analyze BMW sales data and develop an interactive Power BI dashboard that transforms transaction-level sales data into actionable business insights.
+
+The analysis focuses on:
+
+- Revenue trends and year-over-year performance
+- Top-selling BMW models
+- Sales performance across countries and regions
+- Sales channel performance
+- Quantity of vehicles sold
+
+The dashboard is designed to help stakeholders understand sales performance, identify key drivers of revenue and sales volume, and uncover opportunities for data-driven business decisions.
 
 ## Dataset
 
@@ -32,14 +48,12 @@ The main dataset is `BMW_Sales_Data.csv`.
 | Recorded revenue | 376,065,225 |
 | Recorded quantity sold | 15,002 |
 
-The currency represented by `Revenue` is `[NEEDS INPUT]`. The data source and whether the records are real, synthetic, or modified are also `[NEEDS INPUT]`.
-
 Supporting files provide model-image URLs, country flag URLs, dashboard assets, and a text record of the applied DAX measures. See [Source and Attribution](docs/source_and_attribution.md).
 
 ## Tools and Skills Demonstrated
 
 - Power BI dashboard development
-- Power Query data preparation `[NEEDS INPUT: confirm transformations performed]`
+- Power Query data preparation
 - DAX measures and time intelligence
 - Data modelling with a fact table and date dimension
 - KPI definition and year-over-year comparison
@@ -50,11 +64,11 @@ Supporting files provide model-image URLs, country flag URLs, dashboard assets, 
 
 1. Load the sales and supporting lookup files.
 2. Exclude fully blank sales rows and assign appropriate data types.
-3. Build or use the `FactTable` and `Dim_Date` model objects referenced by the supplied DAX.
+3. Build or use the `FactTable`, `Dim_Date`, `DimModel`, `DimCountry`, and `DimChannel` model objects referenced by the supplied DAX.
 4. Relate model and geographic lookup data as implemented in the Power BI file.
-5. Calculate revenue, quantity sold, prior-year values, variance, growth, and trend measures.
+5. Calculate revenue, quantity sold, prior-year values, variance, growth, trend measures etc.
 6. Build interactive report views for business performance analysis.
-7. Validate totals and filter behavior. `[NEEDS INPUT: confirm validation procedure]`
+7. Validate totals and filter behavior.
 
 See [Methodology](docs/methodology.md), [Data Model](docs/data_model.md), and [KPI Definitions](docs/kpi_definitions.md).
 
@@ -75,7 +89,6 @@ See [Key Insights](docs/key_insights.md) for the required evidence-based format.
 ```text
 BMW_Sales_Data/
 |-- README.md
-|-- LICENSE.md
 |-- .gitignore
 |-- BMW_Sales_Dashboard.pbix
 |-- BMW_Sales_Data.csv
@@ -101,30 +114,8 @@ BMW_Sales_Data/
 
 ## How to Use
 
-1. Install Power BI Desktop `[NEEDS INPUT: minimum tested version]`.
+1. Install Power BI Desktop.
 2. Open `BMW_Sales_Dashboard.pbix`.
 3. If Power BI reports missing sources, update the data-source paths to the CSV files in this project root.
 4. Refresh the model and compare the resulting totals with the documented dataset profile.
 
-## Limitations
-
-- The main CSV includes 778 fully blank rows.
-- Revenue currency is not documented.
-- Data provenance and usage rights are not documented.
-- External image and flag URLs may change or become unavailable.
-- `BMW_Image_URLs.csv` contains placeholder GitHub URLs using `<your-user>`.
-- The lookup file `Car Imagess.csv` and several DAX measure names contain spelling errors; they are documented as implemented to avoid misrepresenting the report.
-- The text export of variance measures contains corrupted direction symbols, likely due to character encoding.
-- Cost, profit, margin, customer, target, and inventory fields are not present in the supplied sales dataset.
-
-## Author
-
-- Name: `[NEEDS INPUT]`
-- Role: Data Analyst
-- Portfolio: `[NEEDS INPUT]`
-- LinkedIn: `[NEEDS INPUT]`
-- Contact: `[NEEDS INPUT]`
-
-## License
-
-`[NEEDS INPUT]` See [LICENSE.md](LICENSE.md).

@@ -21,7 +21,7 @@ The following properties were verified directly from `BMW_Sales_Data.csv`:
 
 ## 3. Data Cleaning
 
-The source profile indicates that fully blank records should be excluded. The exact Power Query steps implemented in the `.pbix`, including type changes, renaming, error handling, or query dependencies, are `[NEEDS INPUT: export or describe Power Query transformations]`.
+The source profile indicates that fully blank records should be excluded. The exact Power Query steps implemented in the `.pbix`, including type changes, renaming, error handling, or query dependencies, are all done in power query.
 
 Recommended validation rules, without claiming they are already implemented:
 
@@ -34,7 +34,7 @@ Recommended validation rules, without claiming they are already implemented:
 
 ## 4. Data Modelling
 
-The DAX source explicitly references `FactTable` and `Dim_Date`. This confirms the presence or intended use of a sales fact table and a date dimension. Other model tables, relationship directions, cardinalities, calculated columns, and hidden fields are `[NEEDS INPUT]`.
+The DAX source explicitly references `FactTable` and `Dim_Date`. This confirms the presence or intended use of a sales fact table and a date dimension. Other model tables, relationship directions, cardinalities, calculated columns, and hidden fields are all calculated and done using power query.
 
 ## 5. Measure Development
 
@@ -42,7 +42,7 @@ Ten measures are recorded in `Applied Measures.txt`. They calculate revenue, qua
 
 ## 6. Visualization
 
-The report file is `BMW_Sales_Dashboard.pbix`. A verified inventory of pages, visuals, filters, tooltips, bookmarks, and interactions is `[NEEDS INPUT]`.
+The report file is `BMW_Sales_Dashboard.pbix`. A verified inventory of pages, visuals, filters, tooltips, bookmarks, and interactions is displayed as a visula in the .pbix file.
 
 ## 7. Validation
 
@@ -51,4 +51,4 @@ The raw populated rows sum to:
 - Revenue: 376,065,225
 - Quantity sold: 15,002
 
-These figures are source-data checks, not assertions about the dashboard's current filter context. Dashboard reconciliation results are `[NEEDS INPUT]`.
+These figures are source-data checks, not assertions about the dashboard's current filter context.
