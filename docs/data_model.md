@@ -1,7 +1,7 @@
 # Data Model
 
 ## Verified Model Components
-The original project source consisted of three CSV files: the sales transaction file, a car image URL file, and a country flag/image URL file. During data preparation, the image URL datasets were merged into the corresponding model and country dimensions. As a result, DimModel contains the Car_img attribute and DimCountry contains the C_Flag attribute. The original image lookup tables may remain in the Power BI model as supporting/source tables but are not required as active relationship paths when the image attributes have already been incorporated into the dimensions.
+The original project source consisted of three CSV files: the sales transaction file, a car image URL file, and a country's flag image URL file. During data preparation, the image URL datasets were merged into the corresponding model and country dimensions. As a result, DimModel contains the Car_img attribute and DimCountry contains the C_Flag attribute. The original image lookup tables may remain in the Power BI model as supporting/source tables but are not required as active relationship paths when the image attributes have already been incorporated into the dimensions.
 
 | Relationship             | Key         | Status        | Explanation                                                |
 | ------------------------ | ----------- | ------------- | ---------------------------------------------------------- |
@@ -19,7 +19,7 @@ The original project source consisted of three CSV files: the sales transaction 
 There are actually two different concepts here:
 
 ### Relationships
-These are the connections between your model tables:
+These are the connections between model tables:
 
 Dim_Date ──────► FactTable
 Dim_Model ─────► FactTable

@@ -1,46 +1,3 @@
-# Key Insights
-
-## Status
-
-`\[NEEDS INPUT]`
-
-No business insights are documented yet because the supplied files do not establish the dashboard's final filter state, visual rankings, or validated analytical conclusions. Raw totals alone are not sufficient to claim performance drivers or recommendations.
-
-## Required Evidence-Based Format
-
-For each insight, record:
-
-### Insight 1: `\[NEEDS INPUT: concise finding]`
-
-* Evidence: `\[NEEDS INPUT: metric, comparison, period, and filter context]`
-* Business meaning: `\[NEEDS INPUT]`
-* Recommended action: `\[NEEDS INPUT]`
-* Dashboard location: `\[NEEDS INPUT: page and visual]`
-
-### Insight 2: `\[NEEDS INPUT: concise finding]`
-
-* Evidence: `\[NEEDS INPUT: metric, comparison, period, and filter context]`
-* Business meaning: `\[NEEDS INPUT]`
-* Recommended action: `\[NEEDS INPUT]`
-* Dashboard location: `\[NEEDS INPUT: page and visual]`
-
-### Insight 3: `\[NEEDS INPUT: concise finding]`
-
-* Evidence: `\[NEEDS INPUT: metric, comparison, period, and filter context]`
-* Business meaning: `\[NEEDS INPUT]`
-* Recommended action: `\[NEEDS INPUT]`
-* Dashboard location: `\[NEEDS INPUT: page and visual]`
-
-## Baseline Data Checks
-
-These are dataset-profile facts, not business insights:
-
-* Populated records: 5,000
-* Recorded revenue across all populated rows: 376,065,225
-* Recorded quantity sold across all populated rows: 15,002
-* Coverage: 2019-2023, 26 BMW models, 24 countries, five sales regions, and three channels
-
-
 ## Status
 
 **Dashboard insights aligned to the five defined business questions.**
@@ -110,18 +67,16 @@ The insights below are based on the KPI cards, monthly trend, model cards, count
 
 The channel visual shows approximately:
 
-* **7K units** — ~44%
-* **5K units** — ~33%
-* **3K units** — ~22%
+* **Whosales at 7K units** — ~44%
+* **Dealership at 5K units** — ~33%
+* **Online at 3K units** — ~22%
 * **Total: ~15K units**
 
 **Evidence:** The `Qty Sold by Channel` donut chart shows three channel contributions of approximately 7K, 5K, and 3K units.
 
 **Key Insight:**
 
-> **Sales volume is concentrated in the leading channel, which accounts for approximately 7K of the 15K units sold, or about 44% of total volume. The remaining channels contribute approximately 5K and 3K units respectively.**
-
-**Important:** The screenshot does not clearly expose the **channel names**, so I would not name a specific channel in your documentation until you verify the channel labels in Power BI.
+> **Sales volume is concentrated in the wholesales channel, which accounts for approximately 7K of the 15K units sold, or about 44% of total volume. The remaining channels contribute approximately 5K and 3K units respectively.**
 
 ---
 
@@ -129,7 +84,7 @@ The channel visual shows approximately:
 
 **The business recorded approximately 15K units sold across the reporting period.**
 
-**Evidence:** The `Qty Sold by Channel` visual displays approximately **15K total units**, while the individual model and country visuals show substantial sales volumes across multiple products and markets.
+**Evidence:** From `Qty Sold by Channel` visual displays approximately **15K total units**, while the individual model and country visuals show substantial sales volumes across multiple products and markets.
 
 **Key Insight:**
 

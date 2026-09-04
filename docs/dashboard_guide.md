@@ -36,7 +36,8 @@ The measure inventory confirms support for:
 ## Screenshots Required
 
 * `images/dashboard/dashboard-overview.png`
-* `\[NEEDS INPUT: additional page or detail screenshot names]`
+* `images/dashboard/dashboard-all-cars.png`
+* `images/data-model/dataModel.png`
 
 Each published screenshot should have a short caption explaining the business question answered by that page.
 

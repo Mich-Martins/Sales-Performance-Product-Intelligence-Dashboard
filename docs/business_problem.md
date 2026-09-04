@@ -17,10 +17,3 @@ Sales performance data distributed across dates, products, countries, regions, a
 * Region and country
 * Sales channel
 
-## Constraints
-
-* Revenue currency is not specified.
-* The dataset contains no cost, margin, target, inventory, dealer, or customer fields.
-* Dataset provenance and realism are not specified.
-* External URLs are used for model and flag images.
-
